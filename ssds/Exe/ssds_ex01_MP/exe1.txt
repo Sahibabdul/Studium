@@ -1,0 +1,74 @@
+# 3.2
+* The line that actually prints is:
+	write(1, "Hello, World!\n", 14Hello,World!) = 14
+* The difference is, that printf is the highlevel instruction while write is the low level code.
+* The rewritten code is much shorter/compact
+# 4
+## 1
+* Application: The application is the most toplevel "thing". It runs on top of everything else 
+* Operating System: Manages current active tasks gets includes kernel 
+* kernel: is the most basic instructions that always run so that the system can keep running
+* Bootstrap: the instructions that get called on startup
+## 2
+[b] Windows
+[c] PDF Reader
+[d] Kernel
+[a] ROM, EPROM, CPU, RAM
+[a] Mouse
+[a] Printer
+[b] Linux
+[b] Chrome Browser
+[d] Bob
+[d] Alice Computer
+[c] Word
+[c] Virtual Box
+[b] Bob's Virtual Machine
+## 3
+[2][]
+[1][]
+[2][]
+[3][]
+[2][]
+[3][]
+## 4
+[1][]
+[2][]
+[2][]
+[2][]
+[1][]
+[1/2][]
+## 5
+User mode:
+In User mode, the executing code has no ability to directly access hardware or reference memory. 
+Code running in user mode must delegate to system APIs to access hardware or memory. 
+Due to the protection afforded by this sort of isolation, crashes in user mode are always recoverable. 
+Most of the code running on your computer will execute in user mode.
+Kernel mode:
+In Kernel mode, the executing code has complete and unrestricted access to the underlying hardware. 
+It can execute any CPU instruction and reference any memory address. 
+Crashes in kernel mode are catastrophic more catastrophic.
+## 6
+Caches have a fast access time so memory from slower mediums can be pre-loaded into the cache and be used by the system.
+Caches also allow for a higher throughput, by collecting data from the storage medium and then forwarding it to the cpu.
+The problem with bigger caches is that they imply higher latency, as the data physically needs to be stored further away from the cpu.
+Another problem is that caches normally are volatile memory. So data gets lost after power is cut.
+## 7
+### a
+Two different users can access the other users data with out premission.
+Handling input and output for both users at the same time can result in a bottleneck for certain highly used components
+### b
+We can by using the kernel mode to ensure that different users only have access to their respective data and that there is a fair splitting of resources for multiple users
+## 8
+P2P does not distinguish between client and server every node is considered a peer. 
+While with Client-Server there is a clear structure, as one node is a "provider" and the other the "reciever".
+## 9
+(a) Set value of timer should be privileged as it would allow a program to set the timer higher and almost keep going in a infinte loop.
+(b) Reading the clock doesnt need to be privileged. imo
+(c) Clear memory could be considered privileged, if it would allow to clear the whole memory. But if it only is allowed to clear its own memory this should be fine.
+(d) Issuing a trap instruction should not be privileged as otherwise a program could not notify the kernel that it has run into an error.
+(e) Turning of interrupts should be privileged as otherwise i/o would be disabled.
+(f) Modifing entries in device-status table should be privileged as it could allow a rogue program to for example reroute and access the keyboard input while a password is entered
+(g) Switching from user to kernel mode should definitely be privileged as it would allow a programm to execute code and access data that it isnt allowed to.
+(h) Accessing I/O should also be privileged should be privileged as it could allow a rogue program to for example reroute and access the keyboard input while a password is entered
+## 10
+Only one or some CPUs may execute OS kernel code, I/O, use peripheral devices. While in symmetric multiprocessing ever core/cpu is equal to any other and has the same privileges.
